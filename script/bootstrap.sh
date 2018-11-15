@@ -7,6 +7,11 @@ install_bundle() {
   fi
 }
 
+install_from_brewfile() {
+  task_inform "Installing services from Homebrew"
+  subtask_exec "Brew bundle" brew bundle
+}
+
 install_gems() {
   bundle check || bundle install
 }
@@ -17,12 +22,12 @@ setup_rbenv() {
   export PATH="$HOME/.rbenv/bin:$PATH"
   eval "$(rbenv init -)"
 
-  if [ ! -d "$HOME/.rbenv/versions/2.3.1" ]; then
-    subtask_exec "Install ruby 2.3.1" rbenv install 2.3.1
+  if [ ! -d "$HOME/.rbenv/versions/2.4.2" ]; then
+    subtask_exec "Install ruby 2.4.2" rbenv install 2.4.2
   fi
 
   if [ ! -f "$HOME/.rbenv/version" ]; then
-    subtask_exec "Setting global ruby version to 2.3.1" rbenv global 2.3.1
+    subtask_exec "Setting global ruby version to 2.4.2" rbenv global 2.4.2
   fi
 }
 
@@ -53,15 +58,6 @@ restart_services() {
   subtask_exec "Restarting openssl-osx-ca" brew services restart openssl-osx-ca
 }
 
-setup_openssl() {
-  task_inform "Setting up OpenSSL"
-  if [ ! -f "$HOME/.openssl/betterment.cer" ]; then
-    mkdir -p "$HOME/.openssl"
-    subtask_exec "Setting up openssl certificate" cp resources/openssl/betterment.cer "$HOME/.openssl/betterment.cer"
-  fi
-  subtask_exec "Copy trusted certificates to openssl certificate file" openssl-osx-ca
-}
-
 install_homebrew() {
   # Install homebrew if we don't have it already
   if ! command -v brew > /dev/null 2>&1; then
@@ -87,17 +83,14 @@ cd "$(dirname "$0")/.." || exit
 source script/helpers.sh
 
 install_homebrew && \
+install_from_brewfile && \
 setup_rbenv && \
 restart_services && \
-setup_openssl && \
-setup_postgresql && \
+setup_postgresql
 
 task_inform "Bootstrapping Dependencies..."
-
 subtask_exec "Installing Ruby Version" rbenv install -s "$(cat .ruby-version)"
-
 subtask_exec "Installing Bundler" install_bundle
-
 subtask_exec "Installing Gem dependencies" install_gems
 
 echo -e "🎉 ${GREEN}Bootstrapping is complete.${CLEARCOLOR}"
