@@ -17,12 +17,12 @@ setup_rbenv() {
   export PATH="$HOME/.rbenv/bin:$PATH"
   eval "$(rbenv init -)"
 
-  if [ ! -d "$HOME/.rbenv/versions/2.3.1" ]; then
-    subtask_exec "Install ruby 2.3.1" rbenv install 2.3.1
+  if [ ! -d "$HOME/.rbenv/versions/2.4.2" ]; then
+    subtask_exec "Install ruby 2.4.2" rbenv install 2.4.2
   fi
 
   if [ ! -f "$HOME/.rbenv/version" ]; then
-    subtask_exec "Setting global ruby version to 2.3.1" rbenv global 2.3.1
+    subtask_exec "Setting global ruby version to 2.4.2" rbenv global 2.4.2
   fi
 }
 
@@ -50,16 +50,6 @@ setup_postgresql() {
 restart_services() {
   task_inform "Starting services"
   subtask_exec "Restarting PostgreSQL" brew services restart 'postgresql@9.6'
-  subtask_exec "Restarting openssl-osx-ca" brew services restart openssl-osx-ca
-}
-
-setup_openssl() {
-  task_inform "Setting up OpenSSL"
-  if [ ! -f "$HOME/.openssl/betterment.cer" ]; then
-    mkdir -p "$HOME/.openssl"
-    subtask_exec "Setting up openssl certificate" cp resources/openssl/betterment.cer "$HOME/.openssl/betterment.cer"
-  fi
-  subtask_exec "Copy trusted certificates to openssl certificate file" openssl-osx-ca
 }
 
 install_homebrew() {
@@ -88,9 +78,8 @@ source script/helpers.sh
 
 install_homebrew && \
 setup_rbenv && \
-restart_services && \
-setup_openssl && \
 setup_postgresql && \
+restart_services && \
 
 task_inform "Bootstrapping Dependencies..."
 
