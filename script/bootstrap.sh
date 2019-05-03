@@ -1,5 +1,9 @@
 #!/usr/bin/env bash
 
+brew_bundle() {
+  brew bundle
+}
+
 install_bundle() {
   rbenv which bundler
   if ! [ $? -eq 0 ]; then
@@ -17,22 +21,18 @@ setup_rbenv() {
   export PATH="$HOME/.rbenv/bin:$PATH"
   eval "$(rbenv init -)"
 
-  brew install rbenv
-
-  if [ ! -d "$HOME/.rbenv/versions/2.4.2" ]; then
-    subtask_exec "Install ruby 2.4.2" rbenv install 2.4.2
+  if [ ! -d "$HOME/.rbenv/versions/2.6.0" ]; then
+    subtask_exec "Install ruby 2.6.0" rbenv install 2.6.0
   fi
 
   if [ ! -f "$HOME/.rbenv/version" ]; then
-    subtask_exec "Setting global ruby version to 2.4.2" rbenv global 2.4.2
+    subtask_exec "Setting global ruby version to 2.6.0" rbenv global 2.6.0
   fi
 }
 
 setup_postgresql() {
   task_inform "Setting up PostgreSQL"
   export PATH="/usr/local/opt/postgresql@9.6/bin:$PATH" # This is necessary b/c the postgresql binaries aren't yet in the user's $PATH
-
-  brew install postgresql@9.6
 
   while ! (pg_isready -q)
   do
@@ -81,6 +81,7 @@ cd "$(dirname "$0")/.." || exit
 source script/helpers.sh
 
 install_homebrew && \
+brew_bundle && \
 setup_rbenv && \
 setup_postgresql && \
 restart_services && \
