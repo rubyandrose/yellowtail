@@ -10,6 +10,8 @@ task_inform "Setting up your app..."
 
 subtask_exec "Rehashing RBenv" rbenv rehash
 
+subtask_exec "Setting up database" bundle exec rake db:setup
+
 task_inform "Cleaning up..."
 
 subtask_exec "Cleaning up tmp log" rm "$LOGFILE"
