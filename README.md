@@ -10,10 +10,10 @@ let's throw some grapes on the barby, mate
 #### Part 1: Downloading the project
 1. Share your Github username with Jake & Aliana so they can add you to the Ruby & Rosé project
 2. Clone (download) this repository by opening up the Terminal application and running this line:
-`git clone https://github.com/rubyandrose/bota-box.git`
+`git clone https://github.com/rubyandrose/yellowtail.git`
 You may be asked to install 'xcode command line tools' first - do so if prompted, then return to complete this step. You've just downloaded a personal copy
 of your team's project!
-3. Paste this line into your terminal: `cd bota-box` to enter the new directory you just created.
+3. Paste this line into your terminal: `cd yellowtail` to enter the new directory you just created.
 
 #### Part 2: Setting up your credentials
 4. Paste this line into your terminal: `touch .env.local` - you'll create a new file. We'll use this file to store some credentials your app will need.
