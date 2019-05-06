@@ -12,8 +12,6 @@ let's throw some grapes on the barby, mate
 2. Clone (download) this repository by opening up the Terminal application and running this line: 
 `git clone https://github.com/rubyandrose/yellowtail.git`. You've just downloaded a personal copy
 of your team's project!
-You may be asked to install 'xcode command line tools' first - do so if prompted, then return to complete this step. You've just downloaded a personal copy
-of your team's project!
 3. Paste this line into your terminal: `cd bota-box` to enter the new directory you just created.
 
 #### Part 2: Setting up your credentials
