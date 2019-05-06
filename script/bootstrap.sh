@@ -41,7 +41,7 @@ setup_postgresql() {
     ((seconds_waited+=5))
 
     if ((seconds_waited >= 60)); then
-      subtask_warn "Waited for more than 60 seconds, moving on. PostgreSQL may not have started up correctly. Please investigate and try again."
+      subtask_inform "Waited for more than 60 seconds, moving on. PostgreSQL may not have started up correctly. Please investigate and try again."
       return
     fi
   done
