@@ -1,5 +1,18 @@
-@import url(//fonts.googleapis.com/css?family=Gloria+Hallelujah);
-
-body {
-  font-family: 'Gloria Hallelujah', Helvetica, Arial;
+h1 {
+  display: block;
+  margin-block-start: 1em;
+  margin-block-end: 1em;
+  margin-inline-start: 0px;
+  margin-inline-end: 10px;
+  font-family: Times;
 }
+
+p {
+	font-family: Courier;
+    display: block;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 10px;
+    margin-inline-end: 0px;
+}
+
