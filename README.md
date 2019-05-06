@@ -12,7 +12,7 @@ let's throw some grapes on the barby, mate
 2. Clone (download) the repository by running this line: 
 `git clone https://github.com/rubyandrose/yellowtail.git`. You've just downloaded a personal copy
 of your team's project!
-3. Paste this line into your terminal: `cd bota-box` to enter the new directory you just created.
+3. Paste this line into your terminal: `cd yellowtail` to enter the new directory you just created.
 
 #### Part 2: Setting up your credentials
 4. Paste this line into your terminal: `touch .env.local` - you'll create a new file. We'll use this file to store some credentials your app will need.
