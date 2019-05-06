@@ -8,8 +8,8 @@ let's throw some grapes on the barby, mate
 
 ### Bootstrapping
 #### Part 1: Downloading the project
-1. `Run xcode-select --install` to install the command line tools you'll need
-2. Clone (download) this repository by opening up the Terminal application and running this line: 
+1. Open up the Terminal application and run this line to install the command line tools you'll need: `xcode-select --install`
+2. Clone (download) the repository by running this line: 
 `git clone https://github.com/rubyandrose/yellowtail.git`. You've just downloaded a personal copy
 of your team's project!
 3. Paste this line into your terminal: `cd bota-box` to enter the new directory you just created.
