@@ -7,4 +7,7 @@ Rails.application.routes.draw do
   end
 
   root to: "hello#index"
+
+  get 'about', to:'about#show'
 end
+
