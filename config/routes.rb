@@ -9,5 +9,7 @@ Rails.application.routes.draw do
   root to: "hello#index"
 
   get 'about', to:'about#show'
+  get 'profile', to:'profile#show'
+
 end
 
