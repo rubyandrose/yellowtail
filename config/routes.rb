@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  get 'friends/indeex'
 
   devise_for :users, controllers: { omniauth_callbacks: "omniauth_callbacks" }
 
