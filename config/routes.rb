@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'friends/indeex'
+
   devise_for :users, controllers: { omniauth_callbacks: "omniauth_callbacks" }
 
   devise_scope :user do
@@ -9,5 +11,5 @@ Rails.application.routes.draw do
   root to: "hello#index"
 
   get 'about', to:'about#show'
+  get 'friends', to:'friends#index'
 end
-
