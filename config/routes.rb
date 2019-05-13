@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+
   devise_for :users, controllers: { omniauth_callbacks: "omniauth_callbacks" }
 
   devise_scope :user do
@@ -13,4 +14,5 @@ Rails.application.routes.draw do
     resource :profile
   end
 
+  get 'friends', to:'friends#index'
 end
