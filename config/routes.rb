@@ -10,5 +10,9 @@ Rails.application.routes.draw do
   root to: "hello#index"
 
   get 'about', to:'about#show'
+  resources :users do
+    resource :profile
+  end
+
   get 'friends', to:'friends#index'
 end
