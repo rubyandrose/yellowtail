@@ -8,5 +8,8 @@ class ProfilesController < ApplicationController
   end
 
   def update
+    user=User.find(params[:user_id])
+    user_params=params.require(:user).permit(:bio)
+    user.update_attributes(user_params)
   end
 end
