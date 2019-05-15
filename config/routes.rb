@@ -9,7 +9,9 @@ Rails.application.routes.draw do
   root to: "hello#index"
 
   resources :posts, only: [:new, :create]
-
+  resources :users do
+      resource :profile
+    end
   get 'about', to:'about#show'
+  get 'friends', to:'friends#index'
 end
-
