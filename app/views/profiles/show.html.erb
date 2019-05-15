@@ -1,3 +1,8 @@
 <p> Hello world, this is my profile </p>
+<br>
+<p> My lovely hometown is <%= @user.hometown %> </p>
+<br>
+<p> All about me: <%= @user.bio %></p>
+<br><br>
 
 <%= link_to "Edit your amazing profile", edit_user_profile_path(@user) %>

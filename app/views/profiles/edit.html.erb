@@ -1,6 +1,7 @@
 <p> Edit your profile here </p>
 
 <%= simple_form_for @user, url: user_profile_path, method: :put do |f| %>
+<%= f.input :hometown %>
 <%= f.input :bio %>
 <%= f.submit "Save Changes" %>
 <% end %>

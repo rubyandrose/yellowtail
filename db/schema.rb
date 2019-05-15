@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20190513212552) do
+ActiveRecord::Schema.define(version: 20190515203029) do
 
   create_table "posts", force: :cascade do |t|
     t.string "content"
@@ -36,6 +36,7 @@ ActiveRecord::Schema.define(version: 20190513212552) do
     t.integer "avatar_file_size"
     t.datetime "avatar_updated_at"
     t.text "bio"
+    t.string "hometown"
     t.index ["email"], name: "index_users_on_email", unique: true
   end
 
