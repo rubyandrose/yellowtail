@@ -5,6 +5,7 @@ class User < ApplicationRecord
 
   has_attached_file :avatar, styles: { original: ["140x140#", :png] }
   validates_attachment_content_type :avatar, :content_type => /\Aimage\//
+has_many :posts
 
   def self.from_omniauth(auth)
     find_or_create_by(email: auth.info.email).tap do |user|

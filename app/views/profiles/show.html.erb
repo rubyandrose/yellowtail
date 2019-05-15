@@ -3,6 +3,13 @@
 <p> My lovely hometown is <%= @user.hometown %> </p>
 <br>
 <p> All about me: <%= @user.bio %></p>
-<br><br>
-
+<br>
 <%= link_to "Edit your amazing profile", edit_user_profile_path(@user) %>
+<br> <br> <br>
+<p> My posts!!! </p>
+
+<br>
+<% @user.posts.each do |post| %>
+<p> <%= post.user.full_name %> posted at <%= post.created_at %> </p>
+<br><%= post.content %>
+<% end %>

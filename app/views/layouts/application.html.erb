@@ -12,8 +12,15 @@
 <% if signed_in? %>
   <%= link_to "Sign out", destroy_user_session_path %>
 <% end %>
-
+<nav>
+  <a href="/">Home</a> |
+  <a href="users/1/profile/">Profile</a> |
+  <a href="/settings/">Settings</a> |
+  <a href="/privacy/">You Don't Have Privacy</a>
+  <a href="/friends/">Friends</a>
+</nav>
 <%= yield %>
+
 
 </body>
 </html>

@@ -1,14 +1,14 @@
 class ProfilesController < ApplicationController
   def show
-    @user=User.find(params[:user_id])
+    @user=current_user
   end
 
   def edit
-    @user=User.find(params[:user_id])
+    @user=current_user
   end
 
   def update
-    @user=User.find(params[:user_id])
+    @user=current_user
     user_params=params.require(:user).permit(:bio, :hometown)
     @user.update_attributes(user_params)
     render :show
